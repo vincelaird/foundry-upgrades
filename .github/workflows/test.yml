@@ -30,8 +30,11 @@ jobs:
           forge --version
 
       - name: Install dependencies
-        run: forge install --no-commit
-
+        run: |
+          forge install foundry-rs/forge-std@v1.5.3 --no-commit
+          forge install OpenZeppelin/openzeppelin-contracts-upgradeable@v4.8.3 --no-commit
+          forge install OpenZeppelin/openzeppelin-contracts@v4.8.3 --no-commit
+          
       - name: Run Forge build
         run: |
           forge build --sizes
